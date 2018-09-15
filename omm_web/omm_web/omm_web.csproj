@@ -1,0 +1,255 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD18FAF8-36B7-4AD8-9116-85304720F374}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>omm_web</RootNamespace>
+    <AssemblyName>omm_web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1\lib\net20\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\Downloads\Compressed\SharpZipLib_0860_Bin\net-11\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Resources\css\about.css" />
+    <Content Include="Resources\css\animate.css" />
+    <Content Include="Resources\css\audioplayer.css" />
+    <Content Include="Resources\css\bootstrap.min.css" />
+    <Content Include="Resources\css\classy-nav.min.css" />
+    <Content Include="Resources\css\font-awesome.min.css" />
+    <Content Include="Resources\css\magnific-popup.css" />
+    <Content Include="Resources\css\owl.carousel.min.css" />
+    <Content Include="Resources\fonts\classy.svg" />
+    <Content Include="Resources\fonts\fontawesome-webfont.svg" />
+    <Content Include="Resources\img\bg-img\bg-10.jpg" />
+    <Content Include="Resources\img\bg-img\bg-9.jpg" />
+    <Content Include="Resources\img\bg-img\bgNews.jpg" />
+    <Content Include="Resources\img\bg-img\event4.jpg" />
+    <Content Include="Resources\img\bg-img\gmap.JPG" />
+    <Content Include="Resources\img\bg-img\prod1.png" />
+    <Content Include="Resources\img\bg-img\prod2.png" />
+    <Content Include="Resources\img\blog-img\info_1.jpg" />
+    <Content Include="Resources\img\blog-img\info_2.jpg" />
+    <Content Include="Resources\img\blog-img\info_3.jpg" />
+    <Content Include="Resources\img\blog-img\info_4.jpg" />
+    <Content Include="Resources\img\core-img\about.jpg" />
+    <Content Include="Resources\img\core-img\logo.png" />
+    <Content Include="Resources\img\core-img\logo3.png" />
+    <Content Include="Resources\img\core-img\logologo.png" />
+    <Content Include="Resources\img\core-img\omm_logo.jpg" />
+    <Content Include="Resources\img\prod-img\diamax4.jpg" />
+    <Content Include="Resources\img\prod-img\displayprod.jpg" />
+    <Content Include="Resources\img\prod-img\elisio.jpg" />
+    <Content Include="Resources\img\prod-img\ncu-18.jpg" />
+    <Content Include="Resources\img\prod-img\prod1.png" />
+    <Content Include="Resources\img\prod-img\prod2.JPG" />
+    <Content Include="Resources\img\prod-img\prod3.png" />
+    <Content Include="Resources\img\prod-img\sureflow.jpg" />
+    <Content Include="Resources\img\tm-img\person_1.jpg" />
+    <Content Include="Resources\img\tm-img\person_2.jpg" />
+    <Content Include="Resources\img\tm-img\person_3.jpg" />
+    <Content Include="Resources\img\tm-img\team-1.jpg" />
+    <Content Include="Resources\img\tm-img\team-2.jpg" />
+    <Content Include="Resources\img\tm-img\team-3.jpg" />
+    <Content Include="Resources\img\tm-img\team-4.jpg" />
+    <Content Include="Resources\js\google-map\google-map.js" />
+    <Content Include="Resources\style.css" />
+    <Content Include="Resources\js\active.js" />
+    <Content Include="Resources\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Resources\js\bootstrap\popper.min.js" />
+    <Content Include="Resources\js\google-map\map-active.js" />
+    <Content Include="Resources\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Resources\js\plugins\audioplayer.js" />
+    <Content Include="Resources\js\plugins\plugins.js" />
+    <Content Include="Web.config" />
+    <Content Include="News.aspx" />
+    <Content Include="Products.aspx" />
+    <Content Include="About.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Article.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.master.cs">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.master.designer.cs">
+      <DependentUpon>Site.master</DependentUpon>
+    </Compile>
+    <Compile Include="News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Article.aspx.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article.aspx.designer.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\Data.xls" />
+    <Content Include="omm-web.publishsettings" />
+    <None Include="packages.config" />
+    <Content Include="Site.master" />
+    <Content Include="Resources\fonts\classy.eot" />
+    <Content Include="Resources\fonts\classy.ttf" />
+    <Content Include="Resources\fonts\classy.woff" />
+    <Content Include="Resources\fonts\fontawesome-webfont.eot" />
+    <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Resources\fonts\fontawesome-webfont.woff" />
+    <Content Include="Resources\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Resources\fonts\FontAwesome.otf" />
+    <Content Include="Resources\scss\style.scss" />
+    <Content Include="Resources\scss\_mixin.scss" />
+    <Content Include="Resources\scss\_responsive.scss" />
+    <Content Include="Resources\scss\_theme_color.scss" />
+    <Content Include="Resources\scss\_variables.scss" />
+    <Content Include="Resources\style.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\omm-web - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\omm-web - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58239</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58239/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
