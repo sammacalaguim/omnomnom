@@ -1,0 +1,216 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="omm_web.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Resources/style.css" />
+</head>
+<body>
+    <form id="formSite" runat="server">
+        <!--Preloader-->
+        <div id="preloader">
+            <div class="circle">
+                <img src="Resources/img/core-img/logologo.png" alt="" />
+            </div>
+        </div>
+        <!--Header-->
+        <header class="header-area">
+            <div class="faith-main-menu">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <nav class="classy-navbar justify-content-between" id="faithNav">
+                            <a class="nav-brand" href="Default.aspx">
+                                <img src="Resources/img/core-img/logo.png" alt=""></a>
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+                            <div class="classy-menu">
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+                                <div class="classynav">
+                                    <ul>
+                                        <li>
+                                            <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="lnkNews" runat="server" NavigateUrl="~/News.aspx">News</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="lnkProducts" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="lnkAbout" runat="server" NavigateUrl="~/About.aspx">About Us</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="lnkContact" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--Contents-->
+        <div>
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+         <!--Product Modal-->
+        <div class="modal fade" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img class="d-block w-100" src="" <%--<%=image %>--%> id="modalImage" alt="First slide">
+                            </div>
+                            <div class="col-lg-7">
+                                <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
+                                <h2 class="h2-responsive product-name">
+                                    <strong id="modalTitle"></strong><%--<%=title%></strong>--%>
+                                </h2>
+                                <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <h5 class="mb-0">Description 
+                                    </h5>
+                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p id="modalDescription"></p>
+                                            <a href="" class="btn btn-md faith-btn" id="modalInquire">Inquire</a>
+                                            <%--<%=description%>--%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer class="footer-area">
+            <div class="main-footer-area section-padding-100-0 bg-img foo-bg-overlay" style="background-image: url(Resources/img/bg-img/gmap.JPG);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="d-flex flex-wrap mb-100">
+                                <div class="footer-widget">
+                                    <div class="widget-title">
+                                        <a href="#">
+                                            <img src="Resources/img/core-img/logo3.png" alt=""></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="footer-widget mb-100">
+                                <div class="widget-title">
+                                    <h6>Contact Us</h6>
+                                </div>
+                                <div class="single-contact-area mb-30">
+                                    <p>Address:</p>
+                                    <span>Rm. 301 Cedar Executive Bldg. II 26 Timog Avenue corner Scout Tobias
+                                        <br>
+                                        Quezon City, Philippines </span>
+                                </div>
+                                <div class="single-contact-area mb-30">
+                                    <p>Phone:</p>
+                                    <span>976-7361</span>
+                                </div>
+                                <div class="single-contact-area mb-30">
+                                    <p>Fax:</p>
+                                    <span>416-0829</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="footer-widget mb-100">
+                                <div class="widget-title">
+                                    <h6>Useful Links</h6>
+                                </div>
+                                <nav>
+                                    <ul class="useful-links">
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/News.aspx">News</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/About.aspx">About Us</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-3">
+                            <div class="footer-widget mb-100">
+                                <div class="widget-title">
+                                    <h6>Why Choose us?</h6>
+                                </div>
+                                <p>Fusce nec ante vitae lacus aliquet vulputate. Donec scelerisque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras sed accumsan neque.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--Scripts-->
+        <script src="Resources/js/jquery/jquery-2.2.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="Resources/js/bootstrap/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="Resources/js/bootstrap/bootstrap.min.js"></script>
+        <!-- All Plugins js -->
+        <script src="Resources/js/plugins/plugins.js"></script>
+        <!-- Audioplayer js -->
+        <script src="Resources/js/plugins/audioplayer.js"></script>
+        <!-- Active js -->
+        <script src="Resources/js/active.js"></script>
+        <script type="text/javascript">
+            $('#modalYT').modal('show');
+            $('#modalYT').on('hidden.bs.modal', function () {
+                document.getElementById("playerID").src = '';
+            })
+        </script>
+        <script type="text/javascript">
+            function openModal(btn) {
+                var s = btn.id;
+                var start = s.indexOf("btn_details");
+                var end = s.lastIndexOf("_");
+                sub = s.substring(start, end);
+                s = s.replace(sub, "hdnTitle");
+                var hdnTitle = document.getElementById(s).value;
+                document.getElementById("modalTitle").innerHTML = hdnTitle;
+                s = btn.id;
+                s = s.replace(sub, "hdnImage");
+                var hdnImage = document.getElementById(s).value;
+                document.getElementById("modalImage").src = hdnImage;
+                s = btn.id;
+                s = s.replace(sub, "hdnDescription");
+                var hdnDescription = document.getElementById(s).value;
+                document.getElementById("modalDescription").innerHTML = hdnDescription;
+                document.getElementById("modalInquire").href = "Contact.aspx?title=" + hdnTitle;
+                $('#modalQuickView').modal('show');
+            }
+        </script>  
+    </form>
+</body>
+</html>
