@@ -12,7 +12,10 @@
                 <div class="col-12 col-md-6">
                     <div class="breadcumb-text">
                         <h2>Products</h2>
-                        <p>Cras iaculis eleifend arcu, non cursus sem. Morbi viverra varius nisl, ac varius mauris interdum sit amet. Aenean ac fermentum neque.</p>
+                        <p style="color: white;">
+                            <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Default.aspx" ForeColor="White">Home</asp:HyperLink>
+                            &nbsp;/&nbsp;Products
+                        </p>
                     </div>
                 </div>
             </div>

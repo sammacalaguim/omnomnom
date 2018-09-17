@@ -12,7 +12,10 @@
                     <div class="breadcumb-text">
                         <h5>What’s new</h5>
                         <h2>News</h2>
-                        <p>Cras iaculis eleifend arcu, non cursus sem. Morbi viverra varius nisl, ac varius mauris interdum sit amet. Aenean ac fermentum neque.</p>
+                        <p style="color: white;">
+                            <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Default.aspx" ForeColor="White">Home</asp:HyperLink>
+                            &nbsp;/&nbsp;News
+                        </p>
                     </div>
                 </div>
             </div>
