@@ -7,7 +7,12 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" href="Resources/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Resources/style.css"/>
+    <style>
+        .breadcumb-area {
+            -webkit-filter: brightness(3);
+        }
+    </style>
 </head>
 <body>
     <form id="formSite" runat="server">
@@ -49,6 +54,9 @@
                                         <li>
                                             <asp:HyperLink ID="lnkContact" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
                                         </li>
+                                        <a class="nav-brand" href="https://www.nipro.com/">
+                                            <img src="Resources/img/core-img/nipro.jpg" alt=""/>
+                                        </a>
                                     </ul>
                                 </div>
                             </div>
@@ -69,12 +77,15 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
+                        <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
+                        <br/>
                         <div class="row">
+                            
                             <div class="col-lg-5">
                                 <img class="d-block w-100" src="" <%--<%=image %>--%> id="modalImage" alt="First slide">
                             </div>
                             <div class="col-lg-7">
-                                <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
+                                
                                 <h2 class="h2-responsive product-name">
                                     <strong id="modalTitle"></strong><%--<%=title%></strong>--%>
                                 </h2>
@@ -90,6 +101,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -109,7 +121,6 @@
                                             <img src="Resources/img/core-img/logo3.png" alt=""></a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-xl-3">
@@ -145,9 +156,13 @@
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/News.aspx">News</asp:HyperLink>
+                                            &ensp;
+                                            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/AddNews.aspx" Font-Size="Smaller" >Edit</asp:HyperLink>                                          
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink>
+                                            &ensp;
+                                            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/AddProduct.aspx" Font-Size="Smaller" >Edit</asp:HyperLink>     
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/About.aspx">About Us</asp:HyperLink>

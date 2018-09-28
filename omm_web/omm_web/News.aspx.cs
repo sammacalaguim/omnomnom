@@ -34,7 +34,16 @@ namespace omm_web
             DataSet result = excelReader.AsDataSet();
             if (result.Tables.Count > 0)
             {
-                dtNews = result.Tables[1];
+                DataTable dtNewsOrig = result.Tables[1];
+                dtNews = dtNewsOrig.Clone();
+                dtNews.Columns["Date"].DataType = typeof(DateTime);
+                foreach (DataRow dr in dtNewsOrig.Rows)
+                {
+                    dtNews.ImportRow(dr);
+                }
+                dtNews.AcceptChanges();
+                DataView dvNews = dtNews.DefaultView;
+                dvNews.Sort = "Date DESC";
                 rptrNews.DataSource = dtNews;
                 rptrNews.DataBind();
             }
@@ -165,7 +174,23 @@ namespace omm_web
                 ViewState["CurrentPage"] = value;
             }
         }
-       
+
+        //protected void lnkPrevious_Click(object sender, EventArgs e)
+        //{
+        //    //If user click Previous Link button assign current index as -1 it reduce existing page index.
+        //    CurrentPage -= 1;
+        //    //refresh "Repeater1" Data
+        //    BindDataList();
+        //}
+        //protected void lnkNext_Click(object sender, EventArgs e)
+        //{
+        //    //If user click Next Link button assign current index as +1 it add one value to existing page index.
+        //    CurrentPage += 1;
+
+        //    //refresh "Repeater1" Data
+        //    BindDataList();
+        //}
+
         protected void RepeaterPaging_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName.Equals("newpage"))

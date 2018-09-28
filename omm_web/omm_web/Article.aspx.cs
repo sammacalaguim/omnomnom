@@ -12,7 +12,7 @@ namespace omm_web
 {
     public partial class Article : System.Web.UI.Page
     {
-        public string date, title, description, id, image_path;
+        public string date, title, description, id, image_path, source;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,6 +41,7 @@ namespace omm_web
             date = (string)dv[0]["Date"];
             title = (string)dv[0]["Title"];
             image_path = (string)dv[0]["Image"];
+            source = (string)dv[0]["Source"];
         }
     }
 }

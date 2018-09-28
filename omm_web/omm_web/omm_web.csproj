@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddNews.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Resources\css\about.css" />
     <Content Include="Resources\css\animate.css" />
@@ -100,15 +101,16 @@
     <Content Include="Resources\img\core-img\logo.png" />
     <Content Include="Resources\img\core-img\logo3.png" />
     <Content Include="Resources\img\core-img\logologo.png" />
+    <Content Include="Resources\img\core-img\nipro.jpg" />
     <Content Include="Resources\img\core-img\omm_logo.jpg" />
     <Content Include="Resources\img\prod-img\diamax4.jpg" />
-    <Content Include="Resources\img\prod-img\displayprod.jpg" />
     <Content Include="Resources\img\prod-img\elisio.jpg" />
     <Content Include="Resources\img\prod-img\ncu-18.jpg" />
-    <Content Include="Resources\img\prod-img\prod1.png" />
-    <Content Include="Resources\img\prod-img\prod2.JPG" />
-    <Content Include="Resources\img\prod-img\prod3.png" />
     <Content Include="Resources\img\prod-img\sureflow.jpg" />
+    <Content Include="Resources\img\prod-mini-img\prod1.png" />
+    <Content Include="Resources\img\prod-mini-img\prod2.JPG" />
+    <Content Include="Resources\img\prod-mini-img\prod3.png" />
+    <Content Include="Resources\img\prod-mini-img\prod4.jpg" />
     <Content Include="Resources\img\tm-img\person_1.jpg" />
     <Content Include="Resources\img\tm-img\person_2.jpg" />
     <Content Include="Resources\img\tm-img\person_3.jpg" />
@@ -131,8 +133,16 @@
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Article.aspx" />
+    <Content Include="AddProduct.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNews.aspx.cs">
+      <DependentUpon>AddNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNews.aspx.designer.cs">
+      <DependentUpon>AddNews.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +193,13 @@
     <Compile Include="Article.aspx.designer.cs">
       <DependentUpon>Article.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Files\Data.xls" />
@@ -212,6 +229,35 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

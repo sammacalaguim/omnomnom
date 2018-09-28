@@ -112,7 +112,7 @@
                         <%--<asp:Repeater ID="rptrProducts" runat="server" OnItemCommand="lnkProducts_ItemCommand">--%>
                         <asp:Repeater ID="rptrProducts" runat="server">
                             <ItemTemplate>
-                                <div class="single-donate-slide RepeaterClass">
+                                <%--<div class="single-donate-slide RepeaterClass">
                                     <asp:HiddenField runat="server" ID="hdnTitle" Value='<%# Eval("Title") %>'/>
                                     <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>'/>
                                     <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Description") %>'/>
@@ -124,7 +124,20 @@
                                     <div class="donate-btn text-center">
                                          <a href="#" class="btn faith-btn active" onclick="openModal(this);" id="btn_details" runat="server">View</a>
                                         <%--<asp:LinkButton runat="server" ID="btnProducts" class="btn faith-btn active" Text="View" CommandArgument='<%# Eval("Title") %>' CommandName="lnkProducts">
-                                        </asp:LinkButton>--%>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>--%>
+                                <div class="single-ministry mb-100">
+                                    <asp:HiddenField runat="server" ID="hdnTitle" Value='<%# Eval("Title") %>' />
+                                    <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>' />
+                                    <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Description") %>' />
+                                    <img src="<%# Eval("Mini_Image") %>" alt="" style="width: 700px; height: 177px;">
+                                    <div class="ministry-content">
+                                        <h6><%# Eval("Title") %></h6>
+                                        <p><%# Eval("Description").ToString().Count()>100 ? Eval("Description").ToString().Substring(0,100) + "..." : Eval("Description") %></p>
+                                        <div class="ministry-btn">
+                                            <a href="#" class="btn faith-btn" onclick="openModal(this);" id="btn_details" runat="server">View</a>
+                                        </div>
                                     </div>
                                 </div>
                             </ItemTemplate>
@@ -133,41 +146,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!--Product Modal-->
-    <%--<div class="modal fade" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <img class="d-block w-100" src="" id="modalImage" alt="First slide">
-                        </div>
-                        <div class="col-lg-7">
-                            <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
-                            <h2 class="h2-responsive product-name">
-                                <strong id="modalTitle"></strong>
-                            </h2>
-                            <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                                <h5 class="mb-0">Description 
-                                </h5>
-                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body" >
-                                        <p id="modalDescription"></p>
-                                        <a href="" class="btn btn-md btn-primary" id="modalInquire">Inquire</a>
-                                  
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--%>
-
-    
+    </section>    
 
 </asp:Content>
 

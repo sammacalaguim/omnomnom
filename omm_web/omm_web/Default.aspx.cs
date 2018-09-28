@@ -50,7 +50,29 @@ namespace omm_web
                 rptrBanner.DataSource = dtBanner;
                 rptrBanner.DataBind();
 
-                dtNews = result.Tables[1];
+                DataTable dtNewsOrig = result.Tables[1];
+                dtNews = dtNewsOrig.Clone();
+                dtNews.Columns["Date"].DataType = typeof(DateTime);
+                
+                
+                //dtNews.DefaultView.Sort = "Date DESC";
+
+                foreach (DataRow dr in dtNewsOrig.Rows)
+                {
+                    dtNews.ImportRow(dr);
+                }
+                dtNews.AcceptChanges();
+
+
+                DataView dvNews = dtNews.DefaultView;
+                dvNews.Sort = "Date DESC";
+                //dvNews.Table.AsEnumerable().Take(5);
+
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    dtNews.ImportRow(dvNews.r[i]);
+                //}
+
                 rptrNews.DataSource = dtNews;
                 rptrNews.DataBind();
 
@@ -62,6 +84,7 @@ namespace omm_web
             //6. Free resources (IExcelDataReader is IDisposable)
             excelReader.Close();
         }
+
 
         //protected void lnkProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
         //{
