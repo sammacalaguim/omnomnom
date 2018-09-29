@@ -232,12 +232,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer flex-center">
-                        <asp:CustomValidator ID="custValid" runat="server"
-                            ErrorMessage="Username or Password is invalid."
-                            Display="Dynamic"
-                            OnServerValidate="UsernameOrPassword" 
-                            ValidationGroup='valGroupLogin' ForeColor="Red"/>
-                        <asp:Button runat="server" Text="Login" ValidationGroup='valGroupLogin' CssClass="btn btn-outline-primary btn-rounded btn-md ml-4" ID="btnSubmit" OnClick="btnSubmit_Click"></asp:Button>                        
+                        <font color="red" id ="validator" visible="false" runat="server">Username or Password is invalid.</font>
+                        <asp:Button runat="server" Text="Login" ValidationGroup='valGroupLogin' CssClass="btn btn-outline-primary btn-rounded btn-md ml-4" ID="btnSubmit" UseSubmitBehavior="true" OnClick="btnSubmit_Click"></asp:Button>                        
                     </div>
                 </div>
                 <!--/.Content-->

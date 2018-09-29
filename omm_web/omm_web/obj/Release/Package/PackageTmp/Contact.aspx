@@ -2,6 +2,7 @@
 
 <asp:Content ID="hdrContact" ContentPlaceHolderID="head" runat="server">
     <title>Contact Us</title>
+
 </asp:Content>
 <asp:Content ID="contentContact" ContentPlaceHolderID="content" runat="server">
     <!--Contact Us Header-->
@@ -25,28 +26,87 @@
         <div class="container">
             <div class="row block-9">
                 <div class="col-md-6 pr-md-5">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                    <h5>Send your inquiries to us</h5>
+                    <br />
+                    <br />
+                    <div class="form-group row">
+                        <label for="fldName" class="col-sm-3 col-form-label">Name<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldName" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvName"
+                                runat="server" ControlToValidate="fldName"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fldEmail" class="col-sm-3 col-form-label">Email<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldEmail" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvEmail"
+                                runat="server" ControlToValidate="fldEmail"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fldSubject" class="col-sm-3 col-form-label">Subject<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldSubject" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvSubject"
+                                runat="server" ControlToValidate="fldSubject"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fldMessage" class="col-sm-3 col-form-label">Message<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldMessage" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvMessage"
+                                runat="server" ControlToValidate="fldMessage"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email" >
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject" value="<%=subject%>">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        <asp:Button OnClick="btnSubmit_Click" ValidationGroup='valGroup' runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5"></asp:Button>
                     </div>
                 </div>
-                <div class="col-md-6" id="map"></div>
+                <div class="col-md-6">
+                    <h5>Find Us</h5>
+                    <br />
+                    <br />
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width="470" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=69%20Sct.%20Tobias%20St%2C%20Diliman%2C%20Quezon%20City%2C%201103%20Metro%20Manila&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <a href="https://www.crocothemes.net">crocothemes.net</a>
+                        </div>
+                        <style>
+                            .mapouter {
+                                text-align: right;
+                                height: 400px;
+                                width: 470px;
+                            }
+
+                            .gmap_canvas {
+                                overflow: hidden;
+                                background: none !important;
+                                height: 400px;
+                                width: 470px;
+                            }
+                        </style>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="Resources/js/google-map/google-map.js"></script>
-
 </asp:Content>

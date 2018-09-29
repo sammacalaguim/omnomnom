@@ -12,19 +12,24 @@ namespace omm_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack && Page.User.Identity.Name==String.Empty)
+            if (Page.IsPostBack)
             {
-                Page.RegisterStartupScript("myScript", "<script language=JavaScript>$('#modalYT').modal('hide');$('#modalPush').modal('show');$('#preloader').remove();</script>");
+                if (Page.User.Identity.Name == string.Empty)
+                {
+                    Page.RegisterStartupScript("myScript", "<script language=JavaScript>$('#modalYT').modal('hide');$('#modalPush').modal('show');$('#preloader').remove();</script>");
+                    this.validator.Visible = true;
+                }
             }
-            else {
-                Page.RegisterStartupScript("myScript", "<script language=JavaScript>$('#modalYT').modal('show');</script>");
+            else
+            {
+                Page.RegisterStartupScript("myScriptOK", "<script language=JavaScript>$('#modalYT').modal('show');$('#modalPush').modal('hide');</script>");
             }
             if (Page.User.Identity.Name == string.Empty)
             {
                 btnLogout.Visible = false;
                 lnkEditNews.Visible = false;
                 lnkEditProduct.Visible = false;
-                btnAdmin.Visible = true;
+                btnAdmin.Visible = true;                
             }
             else
             {
@@ -35,26 +40,11 @@ namespace omm_web
             }
         }
 
-        protected void UsernameOrPassword(object source, ServerValidateEventArgs args)
-        {
-            if (FormsAuthentication.Authenticate(fldName.Text, fldPassword.Text))
-            {
-                FormsAuthentication.SetAuthCookie(fldName.Text, true);
-                args.IsValid = true;
-            }
-            else
-            {
-                args.IsValid = false;
-                
-            }
-
-        }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (FormsAuthentication.Authenticate(fldName.Text, fldPassword.Text))
             {
-                FormsAuthentication.SetAuthCookie(fldName.Text, true);
+                FormsAuthentication.RedirectFromLoginPage(fldName.Text, true);
                 btnLogout.Visible = true;
                 lnkEditNews.Visible = true;
                 lnkEditProduct.Visible = true;
@@ -65,8 +55,7 @@ namespace omm_web
                 btnAdmin.Visible = true;
                 lnkEditNews.Visible = false;
                 lnkEditProduct.Visible = false;
-                btnLogout.Visible = false;
-                Page.EnableViewState = false;
+                btnLogout.Visible = false;      
             }
         }
 

@@ -7,7 +7,12 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" href="Resources/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Resources/style.css"/>
+    <style>
+        .breadcumb-area {
+            -webkit-filter: brightness(3);
+        }
+    </style>
 </head>
 <body>
     <form id="formSite" runat="server">
@@ -49,6 +54,9 @@
                                         <li>
                                             <asp:HyperLink ID="lnkContact" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
                                         </li>
+                                        <a class="nav-brand" href="https://www.nipro.com/">
+                                            <img src="Resources/img/core-img/nipro.jpg" alt=""/>
+                                        </a>
                                     </ul>
                                 </div>
                             </div>
@@ -69,14 +77,17 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
+                        <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
+                        <br/>
                         <div class="row">
+                            
                             <div class="col-lg-5">
-                                <img class="d-block w-100" src="" <%--<%=image %>--%> id="modalImage" alt="First slide">
+                                <img class="d-block w-100" src="" id="modalImage" alt="First slide">
                             </div>
                             <div class="col-lg-7">
-                                <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
+                                
                                 <h2 class="h2-responsive product-name">
-                                    <strong id="modalTitle"></strong><%--<%=title%></strong>--%>
+                                    <strong id="modalTitle"></strong>
                                 </h2>
                                 <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
                                     <h5 class="mb-0">Description 
@@ -84,12 +95,12 @@
                                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
                                             <p id="modalDescription"></p>
-                                            <a href="" class="btn btn-md faith-btn" id="modalInquire">Inquire</a>
-                                            <%--<%=description%>--%>
+                                            <a href="" class="btn btn-md faith-btn" id="modalInquire">Inquire</a>                                          
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -109,7 +120,6 @@
                                             <img src="Resources/img/core-img/logo3.png" alt=""></a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-xl-3">
@@ -145,15 +155,25 @@
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/News.aspx">News</asp:HyperLink>
+                                            &ensp;
+                                            <asp:HyperLink ID="lnkEditNews" runat="server" NavigateUrl="~/AddNews.aspx" Font-Size="Smaller" Visible="false">Edit</asp:HyperLink>                                          
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink>
+                                            &ensp;
+                                            <asp:HyperLink ID="lnkEditProduct" runat="server" NavigateUrl="~/AddProduct.aspx" Font-Size="Smaller" Visible="false" >Edit</asp:HyperLink>     
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/About.aspx">About Us</asp:HyperLink>
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#modalPush" runat="server" id="btnAdmin">Maintenance</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" ID="btnLogout" runat="server" visible="false" onserverclick="btnLogout_Click">Logout</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -172,6 +192,55 @@
             </div>
         </footer>
 
+        <!--Login Modal-->
+        <div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                    <!--Header-->
+                    <div class="modal-header d-flex justify-content-center">
+                        <h5>Admin Login</h5>
+                        <button type="button" class="close" style="float: right" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">                        
+                            <div class="form-group row">
+                                <label for="fldName" class="col-sm-3 col-form-label">Username<font color="red">*</font></label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox runat="server" ID="fldName" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-1">
+                                    <asp:RequiredFieldValidator ID="rfvName"
+                                        runat="server" ControlToValidate="fldName"
+                                        ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroupLogin'>
+                                    </asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="fldPassword" class="col-sm-3 col-form-label">Password<font color="red">*</font></label>
+                                <div class="col-sm-8">
+                                    <asp:TextBox TextMode="Password" runat="server" ID="fldPassword" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-1">
+                                    <asp:RequiredFieldValidator ID="rfvPassword"
+                                        runat="server" ControlToValidate="fldPassword"
+                                        ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroupLogin'>
+                                    </asp:RequiredFieldValidator>
+                                </div>
+                            </div>                      
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer flex-center">
+                        <font color="red" id ="validator" visible="false" runat="server">Username or Password is invalid.</font>
+                        <asp:Button runat="server" Text="Login" ValidationGroup='valGroupLogin' CssClass="btn btn-outline-primary btn-rounded btn-md ml-4" ID="btnSubmit" UseSubmitBehavior="true" OnClick="btnSubmit_Click"></asp:Button>                        
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Modal: modalPush-->
+
         <!--Scripts-->
         <script src="Resources/js/jquery/jquery-2.2.4.min.js"></script>
         <!-- Popper js -->
@@ -185,7 +254,7 @@
         <!-- Active js -->
         <script src="Resources/js/active.js"></script>
         <script type="text/javascript">
-            $('#modalYT').modal('show');
+            
             $('#modalYT').on('hidden.bs.modal', function () {
                 document.getElementById("playerID").src = '';
             })

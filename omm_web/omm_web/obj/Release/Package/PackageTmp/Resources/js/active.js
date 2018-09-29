@@ -19,6 +19,57 @@
         });
     });
 
+    $('.modal-footer button').click(function () {
+        var button = $(this);
+
+        if (button.attr("data-dismiss") != "modal") {
+            var inputs = $('form input');
+            var title = $('.modal-title');
+            var progress = $('.progress');
+            var progressBar = $('.progress-bar');
+
+            inputs.attr("disabled", "disabled");
+
+            button.hide();
+
+            progress.show();
+
+            progressBar.animate({ width: "100%" }, 100);
+
+            progress.delay(1000)
+                .fadeOut(600);
+
+            button.text("Close")
+                .removeClass("btn-primary")
+                .addClass("btn-success")
+                .blur()
+                .delay(1600)
+                .fadeIn(function () {
+                    title.text("Log in is successful");
+                    button.attr("data-dismiss", "modal");
+                });
+        }
+    });
+
+    $('#myModal').on('hidden.bs.modal', function (e) {
+        var inputs = $('form input');
+        var title = $('.modal-title');
+        var progressBar = $('.progress-bar');
+        var button = $('.modal-footer button');
+
+        inputs.removeAttr("disabled");
+
+        title.text("Log in");
+
+        progressBar.css({ "width": "0%" });
+
+        button.removeClass("btn-success")
+            .addClass("btn-primary")
+            .text("Ok")
+            .removeAttr("data-dismiss");
+
+    });
+
     // :: 3.0 Search Active Code
     var searchBtn = $('.search-btn');
     var searchWrap = $('.search-wrapper');
@@ -60,13 +111,30 @@
         newSlide.owlCarousel({
             items: 3,
             margin: 30,
-            loop: false,
+            loop: true,
             nav: true,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             dots: true,
-            autoplay: true,
+            autoplay: false,
             autoplayTimeout: 5000,
-            smartSpeed: 800
+            smartSpeed: 800,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                576: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 3
+                },
+                1200: {
+                    items: 3
+                }
+            }
         });
 
         welcomeSlide.on('translate.owl.carousel', function () {

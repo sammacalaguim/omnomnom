@@ -103,6 +103,10 @@
     <Content Include="Resources\img\core-img\logologo.png" />
     <Content Include="Resources\img\core-img\nipro.jpg" />
     <Content Include="Resources\img\core-img\omm_logo.jpg" />
+    <Content Include="Resources\img\news-img\info_1.jpg" />
+    <Content Include="Resources\img\news-img\info_2.jpg" />
+    <Content Include="Resources\img\news-img\info_3.jpg" />
+    <Content Include="Resources\img\news-img\info_4.jpg" />
     <Content Include="Resources\img\prod-img\diamax4.jpg" />
     <Content Include="Resources\img\prod-img\elisio.jpg" />
     <Content Include="Resources\img\prod-img\ncu-18.jpg" />

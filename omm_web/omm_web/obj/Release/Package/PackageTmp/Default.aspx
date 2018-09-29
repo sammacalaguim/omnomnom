@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="omm_web.Default" MasterPageFile="~/Site.master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="omm_web.Default" MasterPageFile="~/Site.master" ValidateRequest="false"%>
 
 <asp:Content ID="headDefault" ContentPlaceHolderID="head" runat="server">   
     <title>Home</title>
@@ -16,21 +16,6 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center flex-column flex-md-row">
-                    <span class="mr-4">Spread the word!</span>
-                    <div>
-                        <a type="button" href="#" class="btn-floating btn-sm btn-fb">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a type="button" href="#" class="btn-floating btn-sm btn-tw">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a type="button" href="#" class="btn-floating btn-sm btn-gplus">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a type="button" href="#" class="btn-floating btn-sm btn-ins">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </div>
                     <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -77,14 +62,14 @@
                         <ItemTemplate>
                             <div class="single-blog-area mb-100">
                                 <div class="blog-thumbnail">
-                                    <img src="<%# Eval("Image") %>" alt="">
+                                    <img src="<%# Eval("Image") %>" style="height: 240px;" alt="">
                                     <div class="post-date">
-                                        <a href="#"><%# Eval("Date") %></a>
+                                        <a href="#"><%# Eval("Date", "{0:MMM dd, yyyy}") %></a>
                                     </div>
                                 </div>
-                                <div class="blog-content">
+                                <div class="blog-content" style="height: 320px;">
                                     <a href="#" class="blog-title"><%# Eval("Title") %></a>
-                                    <p><%# Eval("Description").ToString().Count()>200 ? Eval("Description").ToString().Substring(0,200) + "..." : Eval("Description") %></p>                                              
+                                    <p style="height: 150px;"><%# Eval("Description").ToString().Count()>200 ? Eval("Description").ToString().Substring(0,200) + "..." : Eval("Description") %></p>                                              
                                     <a href="<%# Eval("ID","Article.aspx?id={0}") %>" class="readmore-btn">Read More</a>
                                 </div>
                             </div>
@@ -109,30 +94,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="donate-slides owl-carousel">
-                        <%--<asp:Repeater ID="rptrProducts" runat="server" OnItemCommand="lnkProducts_ItemCommand">--%>
                         <asp:Repeater ID="rptrProducts" runat="server">
                             <ItemTemplate>
-                                <%--<div class="single-donate-slide RepeaterClass">
-                                    <asp:HiddenField runat="server" ID="hdnTitle" Value='<%# Eval("Title") %>'/>
-                                    <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>'/>
-                                    <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Description") %>'/>
-                                    <img class="d-block w-100" src="<%#Eval("Image")%>" alt="First slide">
-                                    <div class="donate-content">
-                                        <h4><%# Eval("Title") %></h4>
-                                        <p><%# Eval("Subtitle") %></p>
-                                    </div>
-                                    <div class="donate-btn text-center">
-                                         <a href="#" class="btn faith-btn active" onclick="openModal(this);" id="btn_details" runat="server">View</a>
-                                        <%--<asp:LinkButton runat="server" ID="btnProducts" class="btn faith-btn active" Text="View" CommandArgument='<%# Eval("Title") %>' CommandName="lnkProducts">
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>--%>
                                 <div class="single-ministry mb-100">
                                     <asp:HiddenField runat="server" ID="hdnTitle" Value='<%# Eval("Title") %>' />
                                     <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>' />
                                     <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Description") %>' />
                                     <img src="<%# Eval("Mini_Image") %>" alt="" style="width: 700px; height: 177px;">
-                                    <div class="ministry-content">
+                                    <div class="ministry-content" style="height:300px;">
                                         <h6><%# Eval("Title") %></h6>
                                         <p><%# Eval("Description").ToString().Count()>100 ? Eval("Description").ToString().Substring(0,100) + "..." : Eval("Description") %></p>
                                         <div class="ministry-btn">
@@ -147,6 +116,6 @@
             </div>
         </div>
     </section>    
-
+    
 </asp:Content>
 
