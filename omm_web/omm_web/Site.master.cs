@@ -12,6 +12,13 @@ namespace omm_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.IsPostBack && Page.User.Identity.Name==String.Empty)
+            {
+                Page.RegisterStartupScript("myScript", "<script language=JavaScript>$('#modalYT').modal('hide');$('#modalPush').modal('show');$('#preloader').remove();</script>");
+            }
+            else {
+                Page.RegisterStartupScript("myScript", "<script language=JavaScript>$('#modalYT').modal('show');</script>");
+            }
             if (Page.User.Identity.Name == string.Empty)
             {
                 btnLogout.Visible = false;
@@ -28,8 +35,18 @@ namespace omm_web
             }
         }
 
-        protected void btnEdit_Click(object sender, EventArgs e)
+        protected void UsernameOrPassword(object source, ServerValidateEventArgs args)
         {
+            if (FormsAuthentication.Authenticate(fldName.Text, fldPassword.Text))
+            {
+                FormsAuthentication.SetAuthCookie(fldName.Text, true);
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+                
+            }
 
         }
 
@@ -44,11 +61,12 @@ namespace omm_web
                 btnAdmin.Visible = false;                
             }
             else
-            {
+            {       
                 btnAdmin.Visible = true;
                 lnkEditNews.Visible = false;
                 lnkEditProduct.Visible = false;
                 btnLogout.Visible = false;
+                Page.EnableViewState = false;
             }
         }
 

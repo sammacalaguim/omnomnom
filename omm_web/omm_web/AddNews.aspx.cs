@@ -17,6 +17,12 @@ namespace omm_web
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckFiles();
+            if (Page.IsPostBack)
+            {
+                fldTitle.Text = "";
+                fldSource.Text = "";
+                fldSummary.Text = "";
+            }
         }
 
         protected void dataDownloadFormControlFile_Click(object sender, EventArgs e)
