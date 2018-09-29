@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 
 namespace omm_web
@@ -11,12 +12,55 @@ namespace omm_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.User.Identity.Name == string.Empty)
+            {
+                btnLogout.Visible = false;
+                lnkEditNews.Visible = false;
+                lnkEditProduct.Visible = false;
+                btnAdmin.Visible = true;
+            }
+            else
+            {
+                btnLogout.Visible = true;
+                lnkEditNews.Visible = true;
+                lnkEditProduct.Visible = true;
+                btnAdmin.Visible = false;
+            }
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (FormsAuthentication.Authenticate(fldName.Text, fldPassword.Text))
+            {
+                FormsAuthentication.SetAuthCookie(fldName.Text, true);
+                btnLogout.Visible = true;
+                lnkEditNews.Visible = true;
+                lnkEditProduct.Visible = true;
+                btnAdmin.Visible = false;                
+            }
+            else
+            {
+                btnAdmin.Visible = true;
+                lnkEditNews.Visible = false;
+                lnkEditProduct.Visible = false;
+                btnLogout.Visible = false;
+            }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Cookies[0].Expires.AddDays(-1);
+            btnAdmin.Visible = true;
+            btnLogout.Visible = false;
+            lnkEditNews.Visible = false;
+            lnkEditProduct.Visible = false;
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

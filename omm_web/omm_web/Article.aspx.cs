@@ -41,7 +41,8 @@ namespace omm_web
             date = (string)dv[0]["Date"];
             title = (string)dv[0]["Title"];
             image_path = (string)dv[0]["Image"];
-            source = (string)dv[0]["Source"];
+            this.btnSource.HRef = (dv[0]["Source"] == DBNull.Value) ? "" : (string)dv[0]["Source"];
+            if (source == "") this.btnSource.Visible = false;
         }
     }
 }

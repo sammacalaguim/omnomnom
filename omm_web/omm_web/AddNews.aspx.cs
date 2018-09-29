@@ -78,8 +78,8 @@ namespace omm_web
             MsExcel.Sheets mWorkSheets;
             MsExcel._Worksheet mWSheet;
             object Missing = System.Reflection.Missing.Value;
-            if (pictureFormControlFile.PostedFile != null && pictureFormControlFile.PostedFile.FileName != "")
-            {
+            //if (pictureFormControlFile.PostedFile != null && pictureFormControlFile.PostedFile.FileName != "")
+            //{
 
                 string path = Server.MapPath(@"~/Files/Data.xls");
                 oXL = new Microsoft.Office.Interop.Excel.Application();
@@ -95,19 +95,12 @@ namespace omm_web
                 int rowCount = range.Rows.Count;
 
                 mWSheet.Cells[rowCount, 1] = (rowCount - 1).ToString();
-                mWSheet.Cells[rowCount, 2] = this.fldTitle.Value;
-                mWSheet.Cells[rowCount, 3] = "'" + DateTime.Now.ToString("MMMM dd, yyyy");
-                mWSheet.Cells[rowCount, 4] = this.fldSummary.Value;                
+                mWSheet.Cells[rowCount, 2] = fldTitle.Text;
+                mWSheet.Cells[rowCount, 3] = "'" + DateTime.Now.ToString("MMMM dd, yyyy");            
+                mWSheet.Cells[rowCount, 4] = fldSummary.Text;                
                 mWSheet.Cells[rowCount, 5] = "Resources/img/news-img/" + pictureFormControlFile.FileName;
-                mWSheet.Cells[rowCount, 6] = this.fldSource.Value;
-
-                string ext = System.IO.Path.GetExtension(pictureFormControlFile.FileName);
-                if (ext != ".jpg" || ext != ".png" || ext != ".gif" || ext != ".jpeg")
-                {
-                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif image types!')", true);
-                }
+                mWSheet.Cells[rowCount, 6] = (fldSource.Text != null) ? fldSource.Text: "";          
                 
-
                 string fileName = Path.GetFileName(pictureFormControlFile.FileName);
                 pictureFormControlFile.SaveAs(Server.MapPath(Path.Combine("~/Resources/img/news-img/", fileName)));
 
@@ -124,7 +117,7 @@ namespace omm_web
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
                 GC.Collect();
-            }
+            //}
             
         }
     }

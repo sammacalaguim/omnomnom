@@ -17,23 +17,17 @@ namespace omm_web
             {
                 if (Request.QueryString["title"] != null)
                 {
-                    this.fldSubject.Value = "Product Inquiry - " + Request.QueryString["title"];
+                    this.fldSubject.Text = "Product Inquiry - " + Request.QueryString["title"];
                 }
-            }
-            else {
-                this.fldSubject.Value = "";
-                this.fldName.Value = "";
-                this.fldEmail.Value = "";
-                this.fldMessage.Value = "";
             }
         }
 
         protected void btnSubmit_Click(object source, EventArgs e)
         {
-            string custName = this.fldName.Value;
-            string custEmail = this.fldEmail.Value;
-            string custMessage = this.fldMessage.Value;
-            string custSubject = this.fldSubject.Value;
+            string custName = this.fldName.Text;
+            string custEmail = this.fldEmail.Text;
+            string custMessage = this.fldMessage.Text;
+            string custSubject = this.fldSubject.Text;
 
             try
             {
@@ -43,7 +37,7 @@ namespace omm_web
                 //message.From.Add(new MailAddress("sammacalaguim@gmail.com"));
                 message.To.Add(new MailAddress("sammacalaguim@gmail.com"));
                 message.To.Add(new MailAddress(custEmail));
-                message.Subject = custSubject;
+                message.Subject = custSubject + " - " + custName;
                 //message.IsBodyHtml = true; //to make message body as html  
                 message.Body = custMessage;
                 //smtp.Port = 587;

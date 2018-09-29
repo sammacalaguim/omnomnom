@@ -29,38 +29,79 @@
                     <h5>Send your inquiries to us</h5>
                     <br />
                     <br />
-                    <div class="form-group">
-                        <input type="text" runat="server" id="fldName" class="form-control" placeholder="Your Name">
+                    <div class="form-group row">
+                        <label for="fldName" class="col-sm-3 col-form-label">Name<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldName" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvName"
+                                runat="server" ControlToValidate="fldName"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fldEmail" class="col-sm-3 col-form-label">Email<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldEmail" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvEmail"
+                                runat="server" ControlToValidate="fldEmail"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fldSubject" class="col-sm-3 col-form-label">Subject<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldSubject" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvSubject"
+                                runat="server" ControlToValidate="fldSubject"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fldMessage" class="col-sm-3 col-form-label">Message<font color="red">*</font></label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" ID="fldMessage" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvMessage"
+                                runat="server" ControlToValidate="fldMessage"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" runat="server" id="fldEmail" class="form-control" placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" runat="server" id="fldSubject" class="form-control" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="" runat="server" id="fldMessage" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <asp:Button OnClick="btnSubmit_Click" runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5"></asp:Button>
+                        <asp:Button OnClick="btnSubmit_Click" ValidationGroup='valGroup' runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5"></asp:Button>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <h5>Find Us</h5>
                     <br />
                     <br />
-                    <div style='overflow: hidden; height: 400px; width: 470px;'>
-                        <div id='gmap_canvas' style='height: 400px; width: 470px;'></div>
-                        <div>
-                            <small><a href="https://embedgooglemaps.com/fr/">embedgooglemaps FR</a></small>
-                        </div>
-                        <div>
-                            <small><a href="http://www.stedentrippers.nl/berlijn.html">stedentrippers NL</a></small>
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width="470" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=69%20Sct.%20Tobias%20St%2C%20Diliman%2C%20Quezon%20City%2C%201103%20Metro%20Manila&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <a href="https://www.crocothemes.net">crocothemes.net</a>
                         </div>
                         <style>
-                            #gmap_canvas img {
-                                max-width: none !important;
-                                background: none !important
+                            .mapouter {
+                                text-align: right;
+                                height: 400px;
+                                width: 470px;
+                            }
+
+                            .gmap_canvas {
+                                overflow: hidden;
+                                background: none !important;
+                                height: 400px;
+                                width: 470px;
                             }
                         </style>
                     </div>
@@ -68,21 +109,4 @@
             </div>
         </div>
     </div>
-    
-    <script src="Resources/js/google-map/google-map.js"></script>
-    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-
-    <script type='text/javascript'>
-        function init_map() {
-            var myOptions = {
-                zoom: 14,
-                center: new google.maps.LatLng(14.6354804, 121.03107090000003), mapTypeId: google.maps.MapTypeId.ROADMAP
-            }; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-            marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(14.6354804, 121.03107090000003) });
-            infowindow = new google.maps.InfoWindow({ content: '<strong>OMM Healthcare Philippine Corporation</strong><br>Cedar Executive Building 2, 26 Timog Avenue, Quezon City, Metro Manila<br>' });
-            google.maps.event.addListener(marker, 'click', function () { infowindow.open(map, marker); }); infowindow.open(map, marker);
-        } google.maps.event.addDomListener(window, 'load', init_map);
-
-    </script>
-
 </asp:Content>

@@ -2337,3 +2337,27 @@ textarea:focus {
         height: 300px;
     }
 }
+
+.modal-dialog-login {
+    width: 300px;
+}
+
+.modal-footer-login {
+    height: 70px;
+    margin: 0;
+}
+
+    .modal-footer-login .btn {
+        font-weight: bold;
+    }
+
+    .modal-footer-login .progress {
+        display: none;
+        height: 32px;
+        margin: 0;
+    }
+
+.input-group-addon-login {
+    color: #fff;
+    background: #3276B1;
+}

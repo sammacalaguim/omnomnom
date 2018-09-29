@@ -28,7 +28,7 @@
                                 <asp:HiddenField runat="server" ID="hdnTitle" Value='<%# Eval("Title") %>'/>
                                 <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>'/>
                                 <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Description") %>'/>
-                                <img src="<%# Eval("Mini_Image") %>" alt="">
+                                <img src="<%# Eval("Mini_Image") %>" alt="" style="height:250px; width: 100%;">
                                 <div class="ministry-content" style="height:300px;">
                                     <h6><%# Eval("Title") %></h6>
                                     <p><%# Eval("Description").ToString().Count()>200 ? Eval("Description").ToString().Substring(0,200) + "..." : Eval("Description") %></p>

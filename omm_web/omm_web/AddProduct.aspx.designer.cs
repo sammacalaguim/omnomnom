@@ -28,16 +28,16 @@ namespace omm_web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText fldTitle;
+        protected global::System.Web.UI.WebControls.TextBox fldTitle;
         
         /// <summary>
-        /// fldSubtitle control.
+        /// rfvTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText fldSubtitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTitle;
         
         /// <summary>
         /// pictureFormControlFile control.
@@ -49,6 +49,24 @@ namespace omm_web {
         protected global::System.Web.UI.WebControls.FileUpload pictureFormControlFile;
         
         /// <summary>
+        /// revpicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revpicture;
+        
+        /// <summary>
+        /// rfvPicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPicture;
+        
+        /// <summary>
         /// minipictureFormControlFile control.
         /// </summary>
         /// <remarks>
@@ -58,13 +76,40 @@ namespace omm_web {
         protected global::System.Web.UI.WebControls.FileUpload minipictureFormControlFile;
         
         /// <summary>
+        /// revminiPicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revminiPicture;
+        
+        /// <summary>
+        /// rfvminiPicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvminiPicture;
+        
+        /// <summary>
         /// fldDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea fldDescription;
+        protected global::System.Web.UI.WebControls.TextBox fldDescription;
+        
+        /// <summary>
+        /// rfvminiDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvminiDescription;
         
         /// <summary>
         /// btnSubmit control.
@@ -92,6 +137,24 @@ namespace omm_web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button dataUploadFormControlButton;
+        
+        /// <summary>
+        /// revUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revUpload;
+        
+        /// <summary>
+        /// rfvUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUpload;
         
         /// <summary>
         /// dataDownloadFormControlFile control.

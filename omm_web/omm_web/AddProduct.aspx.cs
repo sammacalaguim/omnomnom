@@ -101,9 +101,6 @@ namespace omm_web
             MsExcel._Worksheet mWSheet;
             object Missing = System.Reflection.Missing.Value;
 
-            if (pictureFormControlFile.PostedFile != null && pictureFormControlFile.PostedFile.FileName != "")
-            {
-
                 string path = Server.MapPath(@"~/Files/Data.xls");
                 oXL = new Microsoft.Office.Interop.Excel.Application();
                 oXL.Visible = false;
@@ -117,19 +114,11 @@ namespace omm_web
                 int colCount = range.Columns.Count;
                 int rowCount = range.Rows.Count;
 
-                mWSheet.Cells[rowCount + 1, 1] = (rowCount - 1).ToString();
-                mWSheet.Cells[rowCount + 1, 2] = this.fldTitle.Value;
-                mWSheet.Cells[rowCount + 1, 3] = this.fldSubtitle.Value;
-                mWSheet.Cells[rowCount + 1, 4] = this.fldDescription.Value;
-                mWSheet.Cells[rowCount + 1, 5] = "Resources/img/prod-img/" + pictureFormControlFile.FileName;
-                mWSheet.Cells[rowCount + 1, 6] = "Resources/img/prod-mini-img/" + minipictureFormControlFile.FileName;
-
-                string ext = System.IO.Path.GetExtension(pictureFormControlFile.FileName);
-                string extmini = System.IO.Path.GetExtension(minipictureFormControlFile.FileName);
-                //if (ext != ".jpg" || ext != ".png" || ext != ".gif" || ext != ".jpeg" || extmini != ".jpg" || extmini != ".png" || extmini != ".gif" || extmini != ".jpeg")
-                //{
-                //    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif image types!')", true);
-                //}
+                mWSheet.Cells[rowCount + 1, 1] = (rowCount).ToString();
+                mWSheet.Cells[rowCount + 1, 2] = fldTitle.Text;
+                mWSheet.Cells[rowCount + 1, 3] = fldDescription.Text;
+                mWSheet.Cells[rowCount + 1, 4] = "Resources/img/prod-img/" + pictureFormControlFile.FileName;
+                mWSheet.Cells[rowCount + 1, 5] = "Resources/img/prod-mini-img/" + minipictureFormControlFile.FileName;                
 
                 string fileName = Path.GetFileName(pictureFormControlFile.FileName);
                 pictureFormControlFile.SaveAs(Server.MapPath(Path.Combine("~/Resources/img/prod-img/", fileName)));
@@ -149,7 +138,7 @@ namespace omm_web
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
                 GC.Collect();
-            }
+            //}
         }
     }
 }

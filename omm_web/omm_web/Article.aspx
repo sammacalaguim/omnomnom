@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="<%=source%>" class="btn btn-primary">Download Source</a>                        
+                        <a href="<%=source%>" id="btnSource" runat="server" class="btn btn-primary">Download Source</a>                        
                     </td>
                 </tr>
             </tbody>

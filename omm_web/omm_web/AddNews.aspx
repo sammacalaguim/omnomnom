@@ -50,35 +50,58 @@
                     <br />
                     <div class="form-group row">
                         <label for="fldTitle" class="col-sm-2 col-form-label">Title<font color="red">*</font></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Title" runat="server" id="fldTitle">
+                        <div class="col-sm-9">
+                            <asp:TextBox CssClass="form-control" runat="server" id="fldTitle"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvTitle"
+                                runat="server" ControlToValidate="fldTitle"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="fldSource" class="col-sm-2 col-form-label">Source</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Source Link" runat="server" id="fldSource">
+                        <div class="col-sm-9">
+                            <asp:TextBox type="text" CssClass="form-control" runat="server" id="fldSource"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="pictureFormControlFile" class="col-sm-2 col-form-label">Picture<font color="red">*</font></label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:FileUpload CssClass="form-control-file" ID="pictureFormControlFile" runat="server"></asp:FileUpload>
+                            <br />
+                            <asp:RegularExpressionValidator ID="revPicture" runat="server"
+                                ControlToValidate="pictureFormControlFile"
+                                ErrorMessage="Only .jpg, .png, .jpeg Files are allowed" ForeColor="Red"
+                                ValidationExpression="(.*?)\.(jpg|jpeg|png|JPG|JPEG|PNG)$" ValidationGroup='valGroup'>
+                            </asp:RegularExpressionValidator>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvPicture"
+                                runat="server" ControlToValidate="pictureFormControlFile"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="fldSummary" class="col-sm-2 col-form-label">Summary<font color="red">*</font></label>
-                        <div class="col-sm-10">
-                            <textarea name="" id="fldSummary" cols="30" rows="7" class="form-control" placeholder="Summary" runat="server"></textarea>
+                        <div class="col-sm-9">
+                            <asp:TextBox id="fldSummary" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="rfvSummary"
+                                runat="server" ControlToValidate="fldSummary"
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                            </asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <br />
                     <div class="form-group">
-                        <%--<input type="submit" value="Add File +" class="btn btn-primary py-3 px-5" style="background: #108f8f; border-color: #108f8f">
-                        &nbsp;&nbsp;&nbsp;&nbsp;--%>
-                        <asp:Button runat="server" Text="Submit" CssClass="btn btn-primary py-3 px-5" id="btnSubmit" OnClick="btnSubmit_Click" OnClientClick="validateSubmit()"></asp:Button>
+                        <asp:Button runat="server" ValidationGroup='valGroup' Text="Submit" CssClass="btn btn-primary py-3 px-5" id="btnSubmit" OnClick="btnSubmit_Click"></asp:Button>
                     </div>
                 </div>
+
                 <div class="col-md-6 pr-md-5">   
                     <h3>Data File Modification</h3>
                     <br />
@@ -86,7 +109,18 @@
                         <label for="dataUploadFormControlFile">Upload Data File</label>                        
                         <asp:FileUpload class="form-control-file" id="dataUploadFormControlFile" runat="server"></asp:FileUpload>
                         <br/>
-                        <asp:Button CssClass="btn btn-primary col-md-3" id="dataUploadFormControlButton" runat="server" Text="Upload" OnClick="dataUploadFormControlButton_Click"></asp:Button>
+                        <asp:Button CssClass="btn btn-primary col-md-3" ValidationGroup='valGroupData' id="dataUploadFormControlButton" runat="server" Text="Upload" OnClick="dataUploadFormControlButton_Click"></asp:Button>
+                        &nbsp;&nbsp;
+                        <asp:RegularExpressionValidator ID="revUpload" runat="server"
+                            ControlToValidate="dataUploadFormControlFile"
+                            ErrorMessage="Only .xls File is allowed" ForeColor="Red"
+                            ValidationExpression="(.*?)\.(xls)$" ValidationGroup='valGroupData'>
+                        </asp:RegularExpressionValidator>
+                        <br/><br/>
+                        <asp:RequiredFieldValidator ID="rfvUpload"
+                            runat="server" ControlToValidate="dataUploadFormControlFile"
+                            ErrorMessage="No file has been chosen" ForeColor="Red" ValidationGroup='valGroupData'>
+                        </asp:RequiredFieldValidator>  
                     </div>
                     <div class="form-group">
                         <label for="dataDownloadFormControlFile">Download Data File</label> 
@@ -98,12 +132,4 @@
             </div>
         </div>
     </div>
-    <script>
-        function validateSubmit() {
-            if (document.getElementById("fldTitle").Value == "") {
-                alert("Select at least one item!");
-                return false;
-            }
-        }
-    </script>
 </asp:Content>
