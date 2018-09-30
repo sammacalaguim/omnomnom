@@ -37,7 +37,7 @@
                         <div class="col-sm-1">
                             <asp:RequiredFieldValidator ID="rfvName"
                                 runat="server" ControlToValidate="fldName"
-                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroupEmail'>
                             </asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <div class="col-sm-1">
                             <asp:RequiredFieldValidator ID="rfvEmail"
                                 runat="server" ControlToValidate="fldEmail"
-                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroupEmail'>
                             </asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <div class="col-sm-1">
                             <asp:RequiredFieldValidator ID="rfvSubject"
                                 runat="server" ControlToValidate="fldSubject"
-                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroupEmail'>
                             </asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -73,12 +73,12 @@
                         <div class="col-sm-1">
                             <asp:RequiredFieldValidator ID="rfvMessage"
                                 runat="server" ControlToValidate="fldMessage"
-                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroup'>
+                                ErrorMessage="!" ForeColor="Red" Font-Bold="true" ValidationGroup='valGroupEmail'>
                             </asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
-                        <asp:Button OnClick="btnSubmit_Click" ValidationGroup='valGroup' runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5"></asp:Button>
+                        <asp:Button OnClick="btnSubmit_Click" ValidationGroup='valGroupEmail' runat="server" Text="Send Message" CssClass="btn btn-primary py-3 px-5"></asp:Button>
                     </div>
                 </div>
                 <div class="col-md-6">

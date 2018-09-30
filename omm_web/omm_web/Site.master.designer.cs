@@ -166,6 +166,15 @@ namespace omm_web {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnLogout;
         
         /// <summary>
+        /// hidSourceID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidSourceID;
+        
+        /// <summary>
         /// fldName control.
         /// </summary>
         /// <remarks>

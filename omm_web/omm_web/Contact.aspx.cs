@@ -20,25 +20,29 @@ namespace omm_web
                     this.fldSubject.Text = "Product Inquiry - " + Request.QueryString["title"];
                 }
             }
-            else {
-                fldName.Text = "";
-                fldEmail.Text = "";
-                fldSubject.Text = "";
-                fldMessage.Text = "";
-            }
         }
 
         protected void btnSubmit_Click(object source, EventArgs e)
         {
-            string custName = this.fldName.Text;
-            string custEmail = this.fldEmail.Text;
-            string custMessage = this.fldMessage.Text;
-            string custSubject = this.fldSubject.Text;
+            string custName = fldName.Text;
+            string custEmail = fldEmail.Text;
+            string custMessage = fldMessage.Text;
+            string custSubject = fldSubject.Text;
 
             try
             {
-                MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
+                smtp.Port = 587;
+                //smtp.Port = 465;
+                smtp.Host = "smtp.gmail.com"; //for gmail host  
+                smtp.EnableSsl = true;
+                smtp.Timeout = 10000;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.UseDefaultCredentials = false;
+                //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("ommautomail@gmail.com", "ommemail1!");
+                smtp.Credentials = new NetworkCredential("ommautomail@gmail.com", "ommemail1!");
+
+                MailMessage message = new MailMessage();
                 message.From = new MailAddress("ommautomail@gmail.com");
                 //message.From.Add(new MailAddress("sammacalaguim@gmail.com"));
                 message.To.Add(new MailAddress("ommautomail@gmail.com"));
@@ -46,16 +50,10 @@ namespace omm_web
                 message.Subject = custSubject + " - " + custName;
                 //message.IsBodyHtml = true; //to make message body as html  
                 message.Body = custMessage;
-                smtp.Port = 587;
-                //smtp.Port = 465;
-                smtp.Host = "smtp.gmail.com"; //for gmail host  
-                smtp.EnableSsl = true;
-                smtp.UseDefaultCredentials = true;
-                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("ommautomail@gmail.com", "ommemail1!");
-
-                smtp.Credentials = credentials;
+                message.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                
                 smtp.Send(message);
-                Response.Redirect("~/Contact.aspx");
+                //Response.Redirect("~/Contact.aspx");
             }
             catch (Exception) {
             }
