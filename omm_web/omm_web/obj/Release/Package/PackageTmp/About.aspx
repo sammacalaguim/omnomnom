@@ -25,19 +25,61 @@
 
     <div class="med-history">
         <div class="container">
-            <div class="row align-items-end">
-                <div class="col-12 col-lg-6">
+            <div class="row align-items-end">                
+                <div class="col-12 col-lg-12" align="center">
                     <h2>Who We Are</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Curabitur ut augue finibus, luctus tortor at, ornare erat. Nulla facilisi. Sed est risus, laoreet et quam non, viverra accumsan leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Curabitur ut augue finibus, luctus tortor at, ornare erat. </p>
-                </div>
+                    <p class="col-lg-8">
+                        Welcome to your first step to a very prosperous partnership in healthcare. Welcome to OMM HEALTH
+                        CARE PHILIPPINES CORPORATION...
+                        <br/>
+                        You have just stepped into the world of the one, if not the most, highly regarded distributor of Nipro
+                        Brand Hemodialysis products in the Philippines.
+                        <br/>
+                        Established in 2010, OMM HEALTH CARE, have steadily provided top of the line products and world class
+                        service to both Hemodialysis Centers and patients.
+                        <br/>
+                        OMM HEALTH CARE PHILIPPINES CORPORATION and its associates work tirelessly under the company's
+                        guiding H.A.R.D. Core values (cool acronym isn’t it?) that have continuously made it a benchmark in
+                        healthcare distribution.
+                        <br/>
+                        The company aims to lessen the burden of Hemodialysis centers, and patients undergoing treatment by
+                        consistently providing reliable high-quality products and services at a competitive rate during their road
+                        to recovery.
+                        <br/>
+                        OMM HEALTH CARE PHILIPPINES CORPORATION's unceasing dedication lies in its vision of having the
+                        privilege of maintaining a nationwide partnership in renal care and treatment to give patients' their
+                        much-deserved opportunity to focus and maximize high-quality life every day.
+                        <br/>
+                        Now that you know what OMM HEALTH CARE PHILIPPINES CORPORATION is all about...
+                        <br/>
+                        Welcome to your first step towards the right direction in Healthcare Distribution, and yes, the company
+                        really does have H.A.R.D. Core values...
+                    </p>
+                </div>   
                 <div class="col-12 col-lg-6 mt-5 mt-lg-0">
-                    <img class="responsive" src="Resources/img/core-img/about.jpg" alt="">
+                    <br/><br/><br/><br/><br/><br/>
+                    <%--<img class="responsive" src="Resources/img/core-img/about.jpg" alt="">--%>
+                    <h4>H.A.R.D. CORE VALUES</h4>
+                    <p>                        
+                        <b><u>HIGH-QUALITY -</u></b>
+                        Products and services offered by OMM Health Care Philippines Corp. are always top of the line and
+                        world class which eases the burden for both patients and healthcare workers.
+                        <br/><br/>
+                        <b><u>AFFORDABILITY -</u></b>
+                        OMM Health Care Philippines Corp. products and services are priced at cost-effective rates that
+                        genuinely consider the value of renal care expenses.
+                        <br/><br/>
+                        <b><u>RELIABILITY AND DEDICATION -</u></b>
+                        OMM Health Care Philippines Corp. is committed to bringing the best to our partners. The company is
+                        known for its dedication to delivering what, when, how, and where it promises to deliver over and over
+                        again.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="medical-team">
+    <%--<div class="medical-team">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -77,5 +119,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>

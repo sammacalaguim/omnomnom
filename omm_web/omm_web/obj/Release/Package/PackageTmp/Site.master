@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="~/Resources/style.css"/>
     <style>
         .breadcumb-area {
-            -webkit-filter: brightness(3);
+            -webkit-filter: brightness(1);
         }
     </style>
 </head>
@@ -43,13 +43,13 @@
                                             <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
                                         </li>
                                         <li>
-                                            <asp:HyperLink ID="lnkNews" runat="server" NavigateUrl="~/News.aspx">News</asp:HyperLink>
+                                            <asp:HyperLink ID="lnkAbout" runat="server" NavigateUrl="~/About.aspx">About Us</asp:HyperLink>
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="lnkProducts" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink>
                                         </li>
                                         <li>
-                                            <asp:HyperLink ID="lnkAbout" runat="server" NavigateUrl="~/About.aspx">About Us</asp:HyperLink>
+                                            <asp:HyperLink ID="lnkNews" runat="server" NavigateUrl="~/News.aspx">News</asp:HyperLink>
                                         </li>
                                         <li>
                                             <asp:HyperLink ID="lnkContact" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
@@ -170,7 +170,7 @@
                                             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Contact.aspx">Contact Us</asp:HyperLink>
                                         </li>
                                         <li>
-                                            <a href="#" data-toggle="modal" data-target="#modalPush" runat="server" id="btnAdmin">Maintenance</a>
+                                            <a href="#" data-toggle="modal" data-target="#modalPush" runat="server" id="btnAdmin">Admin</a>
                                         </li>
                                         <li>
                                             <a href="#" ID="btnLogout" runat="server" visible="false" onserverclick="btnLogout_Click">Logout</a>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="~/Resources/style.css"/>
     <style>
         .breadcumb-area {
-            -webkit-filter: brightness(3);
+            -webkit-filter: brightness(1);
         }
     </style>
 </head>

@@ -56,20 +56,24 @@
                         really does have H.A.R.D. Core values...
                     </p>
                 </div>   
-                <div class="col-12 col-lg-6 mt-5 mt-lg-0">
+                <div class="col-12 col-lg-12 mt-5 mt-lg-0" align="center">
                     <br/><br/><br/><br/><br/><br/>
                     <%--<img class="responsive" src="Resources/img/core-img/about.jpg" alt="">--%>
                     <h4>H.A.R.D. CORE VALUES</h4>
-                    <p>                        
-                        <b><u>HIGH-QUALITY -</u></b>
+                    <br/><br/>
+                    <p class="col-lg-8">                        
+                        <b><u>HIGH-QUALITY</u></b>
+                        <br/>
                         Products and services offered by OMM Health Care Philippines Corp. are always top of the line and
                         world class which eases the burden for both patients and healthcare workers.
                         <br/><br/>
-                        <b><u>AFFORDABILITY -</u></b>
+                        <b><u>AFFORDABILITY</u></b>
+                        <br/>
                         OMM Health Care Philippines Corp. products and services are priced at cost-effective rates that
                         genuinely consider the value of renal care expenses.
                         <br/><br/>
-                        <b><u>RELIABILITY AND DEDICATION -</u></b>
+                        <b><u>RELIABILITY AND DEDICATION</u></b>
+                        <br/>
                         OMM Health Care Philippines Corp. is committed to bringing the best to our partners. The company is
                         known for its dedication to delivering what, when, how, and where it promises to deliver over and over
                         again.

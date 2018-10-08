@@ -12,7 +12,8 @@
             <div class="modal-content">
                 <div class="modal-body mb-0 p-0">
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                        <iframe class="embed-responsive-item" id="playerID" src="https://www.youtube.com/embed/A3PDXmYoF5U" allowfullscreen></iframe>
+                        <%--<iframe class="embed-responsive-item" id="playerID" src="https://drive.google.com/file/d/1uEac6OL5jht3h_uFgSakfR1UHpvBlbuq/view" allowfullscreen></iframe>--%>
+                        <iframe class="embed-responsive-item" id="playerID" src="https://drive.google.com/file/d/1uEac6OL5jht3h_uFgSakfR1UHpvBlbuq/preview" width="640" height="480"></iframe>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center flex-column flex-md-row">
