@@ -49,11 +49,11 @@
     <!--News Carousel-->
     <div class="faith-blog-area" style="padding-top: 50px">
         <div class="container">
-            <div class="row">
+            <div class="row" id="hdrNews" runat="server">
                 <div class="col-12">
                     <div class="section-heading text-center mx-auto">         
                         <h3>Latest News</h3>
-                        <p>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh.</p>
+                        <%--<p>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh.</p>--%>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="blog-content" style="height: 320px;">
                                     <a href="#" class="blog-title"><%# Eval("Title") %></a>
-                                    <p style="height: 150px;"><%# Eval("Description").ToString().Count()>200 ? Eval("Description").ToString().Substring(0,200) + "..." : Eval("Description") %></p>                                              
+                                    <p style="height: 150px;"><%# Eval("Description").ToString().Count()>200 ? Eval("Description").ToString().Substring(0,200) + "..." : Eval("Description").ToString().Replace("\n", "<br/>") %></p>                                              
                                     <a href="<%# Eval("ID","Article.aspx?id={0}") %>" class="readmore-btn">Read More</a>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                 <div class="col-12">
                     <div class="section-heading text-center mx-auto">
                         <h3>Products</h3>
-                        <p>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh.</p>
+                        <%--<p>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh.</p>--%>
                     </div>
                 </div>
             </div>
@@ -99,12 +99,13 @@
                             <ItemTemplate>
                                 <div class="single-ministry mb-100">
                                     <asp:HiddenField runat="server" ID="hdnTitle" Value='<%# Eval("Title") %>' />
-                                    <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>' />
-                                    <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Description") %>' />
-                                    <img src="<%# Eval("Mini_Image") %>" alt="" style="width: 700px; height: 177px;">
-                                    <div class="ministry-content" style="height:300px;">
+                                    <asp:HiddenField runat="server" ID="hdnImage" Value='<%# Eval("Image") %>' />                                    
+                                    <asp:HiddenField runat="server" ID="hdnDescription" Value='<%# Eval("Subtitle") + "<br/><br/>" + Eval("Description").ToString().Replace("\n", "<br/>") %>' />                                   
+                                    <img src="<%# Eval("Image") %>" alt="" style=" width: 700px; height: 177px; overflow: hidden; object-fit: cover">                                      
+                                    <div class="ministry-content" style="height:350px;">
                                         <h6><%# Eval("Title") %></h6>
-                                        <p><%# Eval("Description").ToString().Count()>100 ? Eval("Description").ToString().Substring(0,100) + "..." : Eval("Description") %></p>
+                                        <%--<p><%# Eval("Description").ToString().Count()>100 ? Eval("Description").ToString().Substring(0,100) + "..." : Eval("Description") %></p>--%>
+                                        <p><%# Eval("Subtitle") %></p>
                                         <div class="ministry-btn">
                                             <a href="#" class="btn faith-btn" onclick="openModal(this);" id="btn_details" runat="server">View</a>
                                         </div>
